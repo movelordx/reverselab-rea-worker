@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: reverselab-rea-worker
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: CALLBACK_HOST_SUFFIX
+        value: ".floot.app"
+      - key: MAX_FILE_BYTES
+        value: "104857600"
+      - key: MAX_JOB_MS
+        value: "720000"
+      - key: WORKER_CONCURRENCY
+        value: "1"
